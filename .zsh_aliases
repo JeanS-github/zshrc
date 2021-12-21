@@ -1,0 +1,14 @@
+alias l='ls -lFGh --color=auto'
+alias ll='/usr/bin/clear && ls -lFGh --color=auto'
+alias la='/usr/bin/clear && ls -lFGha --color=auto'
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+alias -s pdf="evinc "
+function evinc() {
+    /usr/bin/evince ${1} > /dev/null 2>&1 &
+}
+
+# or with warnings
+# alias -s pdf=evince
