@@ -4,7 +4,7 @@ setopt PROMPT_SUBST
 PROMPT=$'%{$fg_bold[green]%}%n %{$reset_color%}%{$fg_bold[blue]%}$(showone)%{$reset_color%}%{$fg[blue]%} $%{$fg_bold[blue]%}%{$reset_color%} '
 
 function showone() {
-    echo ${${:-/${(j:/:)${(M)${(s:/:)${(D)PWD:h}}#(|.)[^.]}}/${PWD:t}}//\/~/\~} | sed -e 's/^\/h\/jean/~/'
+    echo ${${:-/${(j:/:)${(M)${(s:/:)${(D)PWD:h}}#(|.)[^.]}}/${PWD:t}}//\/~/\~} | sed -e 's/^\/h\/'$(id -un)'/~/' | sed -e 's#^//#/#'
 }
 
 #PROMPT=$'\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
